@@ -4,6 +4,8 @@
 
 ![Visitors](https://visitor-badge.glitch.me/badge?page_id=filipeforattini-github)
 
+---
+
 ## projects
 
 #### 📂 [Github Actions Fast Pipelines](https://github.com/filipeforattini/ff-iac-github-actions)
