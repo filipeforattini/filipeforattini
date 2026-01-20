@@ -20,7 +20,7 @@
 
 <img src="https://github-readme-stats.vercel.app/api?username=filipeforattini&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6&icon_color=8B5CF6" alt="GitHub Stats" />
 
-<img src="https://streak-stats.demolab.com?user=filipeforattini&theme=dark&hide_border=true&background=0D1117&ring=8B5CF6&fire=FF6B6B&currStreakNum=8B5CF6&sideNums=8B5CF6&currStreakLabel=8B5CF6&sideLabels=8B5CF6&dates=888888" alt="GitHub Streak" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=filipeforattini&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=8B5CF6&line=8B5CF6&point=FF6B6B" alt="Activity Graph" />
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=filipeforattini&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6" alt="Top Languages" />
 
