@@ -16,6 +16,16 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=8B5CF6&center=true&vCenter=true&width=435&lines=Zero+dependencies.+Maximum+power.;MCP-ready+for+AI+assistants.;Open+source.+Free+forever." alt="Typing SVG" />
 
+---
+
+<img src="https://github-readme-stats.vercel.app/api?username=filipeforattini&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6&icon_color=8B5CF6" alt="GitHub Stats" />
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=filipeforattini&theme=tokyonight&hide_border=true&background=0D1117&stroke=8B5CF6&ring=8B5CF6&fire=FF6B6B&currStreakLabel=8B5CF6" alt="GitHub Streak" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=filipeforattini&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6" alt="Top Languages" />
+
+![Profile Views](https://komarev.com/ghpvc/?username=filipeforattini&color=8B5CF6&style=flat-square)
+
 </div>
 
 ---
@@ -263,20 +273,6 @@ rb crypto vault encrypt data.json -o data.enc
 
 <div align="center">
 
-## GitHub Stats
-
-<img src="https://github-readme-stats.vercel.app/api?username=filipeforattini&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6&icon_color=8B5CF6" alt="GitHub Stats" />
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=filipeforattini&theme=tokyonight&hide_border=true&background=0D1117&stroke=8B5CF6&ring=8B5CF6&fire=FF6B6B&currStreakLabel=8B5CF6" alt="GitHub Streak" />
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=filipeforattini&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6" alt="Top Languages" />
-
-</div>
-
----
-
-<div align="center">
-
 ## The Philosophy
 
 **Zero Dependencies** · **TypeScript-First** · **MCP-Ready** · **Production-Ready**
@@ -289,8 +285,6 @@ No supply chain attacks. Full type safety. AI assistants can use my tools native
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/filipeforattini)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/filipeforattini)
-
-![Profile Views](https://komarev.com/ghpvc/?username=filipeforattini&color=8B5CF6&style=flat-square)
 
 *All projects are MIT licensed. Open source. Free forever.*
 
