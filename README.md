@@ -14,6 +14,8 @@
 [![GPT](https://img.shields.io/badge/GPT_5.2-412991?style=flat-square&logo=openai&logoColor=white)](https://openai.com)
 [![Gemini](https://img.shields.io/badge/Gemini_3-4285F4?style=flat-square&logo=google&logoColor=white)](https://deepmind.google)
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=8B5CF6&center=true&vCenter=true&width=435&lines=Zero+dependencies.+Maximum+power.;MCP-ready+for+AI+assistants.;Open+source.+Free+forever." alt="Typing SVG" />
+
 </div>
 
 ---
@@ -25,6 +27,7 @@
 | [**s3db.js**](#s3dbjs) | Document database on S3 with ORM-like API |
 | [**recker**](#recker) | Multi-protocol SDK (HTTP, WS, DNS, WHOIS, FTP...) |
 | [**tuiuiu.js**](#tuiuiujs) | Terminal UI framework with 50+ components |
+| [**genetics-ai.js**](#genetics-aijs) | Evolve neural networks with genetic algorithms |
 | [**raffel**](#raffel) | Multi-protocol API server (Express-like DX) |
 | [**vaulter**](#vaulter) | Encrypted secrets manager with K8s/Terraform export |
 | [**cli-args-parser**](#cli-args-parser) | Zero-dep CLI argument parser |
@@ -112,6 +115,37 @@ render(() =>
     }, 'Increment')
   )
 )
+```
+
+---
+
+## genetics-ai.js
+
+**Evolve neural networks with genetic algorithms. No training data needed.**
+
+[![npm](https://img.shields.io/npm/v/genetics-ai.js?style=flat-square)](https://www.npmjs.com/package/genetics-ai.js)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/genetics-ai.js?style=flat-square)](https://github.com/forattini-dev/genetics-ai.js)
+
+NEAT speciation. Multi-objective (NSGA-II). Novelty search. Hill climbing. 262 tests. ~8k brain ticks/second. Built-in profiler and visualizer.
+
+```javascript
+import { Generation, Individual } from 'genetics-ai.js'
+
+class Creature extends Individual {
+  fitness() {
+    return this.distance  // Further = better
+  }
+}
+
+const gen = new Generation({ size: 100, individualClass: Creature })
+gen.fillRandom()
+
+for (let i = 0; i < 100; i++) {
+  await gen.tickAsync()
+  gen.population.sort((a, b) => b.fitness() - a.fitness())
+  gen.population.slice(-30).forEach(ind => ind.dead = true)
+  gen = await gen.nextAsync()  // Evolution!
+}
 ```
 
 ---
@@ -229,6 +263,20 @@ rb crypto vault encrypt data.json -o data.enc
 
 <div align="center">
 
+## GitHub Stats
+
+<img src="https://github-readme-stats.vercel.app/api?username=filipeforattini&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6&icon_color=8B5CF6" alt="GitHub Stats" />
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=filipeforattini&theme=tokyonight&hide_border=true&background=0D1117&stroke=8B5CF6&ring=8B5CF6&fire=FF6B6B&currStreakLabel=8B5CF6" alt="GitHub Streak" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=filipeforattini&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6" alt="Top Languages" />
+
+</div>
+
+---
+
+<div align="center">
+
 ## The Philosophy
 
 **Zero Dependencies** · **TypeScript-First** · **MCP-Ready** · **Production-Ready**
@@ -241,6 +289,8 @@ No supply chain attacks. Full type safety. AI assistants can use my tools native
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/filipeforattini)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/filipeforattini)
+
+![Profile Views](https://komarev.com/ghpvc/?username=filipeforattini&color=8B5CF6&style=flat-square)
 
 *All projects are MIT licensed. Open source. Free forever.*
 
