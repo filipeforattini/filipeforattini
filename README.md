@@ -20,7 +20,7 @@
 
 <img src="https://github-readme-stats.vercel.app/api?username=filipeforattini&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6&icon_color=8B5CF6" alt="GitHub Stats" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=filipeforattini&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=8B5CF6&line=8B5CF6&point=FF6B6B" alt="Activity Graph" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=filipeforattini&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=8B5CF6&line=8B5CF6&point=FF6B6B&days=90&area=true" alt="Activity Graph" />
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=filipeforattini&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B5CF6" alt="Top Languages" />
 
