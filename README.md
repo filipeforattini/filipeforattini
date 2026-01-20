@@ -18,191 +18,229 @@
 
 ---
 
-## What I'm Building
+## Quick Nav
 
-I create **zero-dependency**, **production-ready** libraries that solve real problems. No bloat. No unnecessary abstractions. Just tools that work.
+| Project | What it does |
+|:--------|:-------------|
+| [**s3db.js**](#s3dbjs) | Document database on S3 with ORM-like API |
+| [**recker**](#recker) | Multi-protocol SDK (HTTP, WS, DNS, WHOIS, FTP...) |
+| [**tuiuiu.js**](#tuiuiujs) | Terminal UI framework with 50+ components |
+| [**raffel**](#raffel) | Multi-protocol API server (Express-like DX) |
+| [**vaulter**](#vaulter) | Encrypted secrets manager with K8s/Terraform export |
+| [**cli-args-parser**](#cli-args-parser) | Zero-dep CLI argument parser |
+| [**redblue**](#redblue) | Security toolkit in Rust (30+ tools, 2.7MB) |
 
-<table>
-<tr>
-<td width="50%" valign="top">
+---
 
-### [**s3db.js**](https://github.com/forattini-dev/s3db.js)
-**Document Database on S3**
+## s3db.js
 
-Transform AWS S3 into a fully functional document database. ORM-like interface, field-level encryption, streaming API, and 30+ field types. Pay only for storage.
+**Transform AWS S3 into a fully functional document database.**
 
-[![npm](https://img.shields.io/npm/v/s3db.js?color=brightgreen&style=flat-square)](https://www.npmjs.com/package/s3db.js)
-[![npm downloads](https://img.shields.io/npm/dm/s3db.js?color=blue&style=flat-square)](https://www.npmjs.com/package/s3db.js)
+[![npm](https://img.shields.io/npm/v/s3db.js?style=flat-square)](https://www.npmjs.com/package/s3db.js)
+[![downloads](https://img.shields.io/npm/dm/s3db.js?style=flat-square)](https://www.npmjs.com/package/s3db.js)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/s3db.js?style=flat-square)](https://github.com/forattini-dev/s3db.js)
+
+ORM-like interface. Field-level encryption (AES-256-GCM). Streaming API. 30+ field types. 12 plugins. MCP server included. Pay only for S3 storage.
 
 ```javascript
+const db = new S3db({ uri: 's3://key:secret@bucket?region=us-east-1' })
+
 const users = await db.createResource({
   name: 'users',
   attributes: {
     email: 'email|required|unique',
-    password: 'secret|required'
+    password: 'secret|required',
+    role: 'enum:admin,user|default:user'
   }
-});
-await users.insert({ email: 'hi@me.com', password: 'x' });
+})
+
+await users.insert({ email: 'dev@example.com', password: 'secure123' })
+const admins = await users.query({ role: 'admin' })
 ```
 
-</td>
-<td width="50%" valign="top">
+---
 
-### [**recker**](https://github.com/forattini-dev/recker)
-**Multi-Protocol SDK for the AI Era**
+## recker
 
-9 protocols unified: HTTP, WebSocket, DNS, WHOIS, RDAP, FTP, SFTP, Telnet, HLS. AI-native with OpenAI, Anthropic, Google built-in. 48 API presets. MCP server with 65 tools.
+**Multi-Protocol SDK for the AI Era.**
 
-[![npm](https://img.shields.io/npm/v/recker?color=F5A623&style=flat-square)](https://www.npmjs.com/package/recker)
-[![npm downloads](https://img.shields.io/npm/dm/recker?color=34C759&style=flat-square)](https://www.npmjs.com/package/recker)
+[![npm](https://img.shields.io/npm/v/recker?style=flat-square)](https://www.npmjs.com/package/recker)
+[![downloads](https://img.shields.io/npm/dm/recker?style=flat-square)](https://www.npmjs.com/package/recker)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/recker?style=flat-square)](https://github.com/forattini-dev/recker)
+
+9 protocols unified: HTTP, WebSocket, DNS, WHOIS, RDAP, FTP, SFTP, Telnet, HLS. 48 API presets (OpenAI, Anthropic, Stripe, GitHub...). 65 MCP tools. 4200+ tests.
 
 ```javascript
-import { get, whois, dns } from 'recker';
+import { get, post, whois, dns, ftp } from 'recker'
 
-const users = await get('https://api.com/users').json();
-const info = await whois('github.com');
-const ips = await dns('google.com');
+// HTTP with automatic retry, cache, auth
+const users = await get('https://api.example.com/users').json()
+
+// Multi-protocol in the same codebase
+const domainInfo = await whois('github.com')
+const records = await dns('google.com', { type: 'MX' })
+const files = await ftp('ftp://server.com').list('/pub')
+
+// AI-native
+import { anthropic } from 'recker'
+const response = await anthropic.chat('Explain recursion')
 ```
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+---
 
-### [**tuiuiu.js**](https://github.com/forattini-dev/tuiuiu.js)
-**Terminal UI Framework**
+## tuiuiu.js
 
-Build beautiful, reactive terminal apps. Signal-based reactivity, Flexbox layout, full mouse support. 50+ components. Zero dependencies. Pure Node.js.
+**Terminal UI Framework. Zero Dependencies. Pure Node.js.**
 
-[![npm](https://img.shields.io/npm/v/tuiuiu.js?color=F5A623&style=flat-square)](https://www.npmjs.com/package/tuiuiu.js)
-[![npm downloads](https://img.shields.io/npm/dm/tuiuiu.js?color=34C759&style=flat-square)](https://www.npmjs.com/package/tuiuiu.js)
+[![npm](https://img.shields.io/npm/v/tuiuiu.js?style=flat-square)](https://www.npmjs.com/package/tuiuiu.js)
+[![downloads](https://img.shields.io/npm/dm/tuiuiu.js?style=flat-square)](https://www.npmjs.com/package/tuiuiu.js)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/tuiuiu.js?style=flat-square)](https://github.com/forattini-dev/tuiuiu.js)
+
+Signal-based reactivity. Flexbox layout engine. Full mouse support. 50+ components. 11 themes. 5300+ tests. MCP server included.
 
 ```javascript
-import { render, Box, Text, useState } from 'tuiuiu.js';
+import { render, Box, Text, Button, createSignal } from 'tuiuiu.js'
 
-function App() {
-  const [count, setCount] = useState(0);
-  return Box({ padding: 1 },
-    Text({ color: 'cyan' }, `Count: ${count()}`)
-  );
-}
+const [count, setCount] = createSignal(0)
+
+render(() =>
+  Box({ padding: 2, border: 'rounded', flexDirection: 'column' },
+    Text({ color: 'cyan', bold: true }, `Count: ${count()}`),
+    Button({
+      onClick: () => setCount(c => c + 1),
+      variant: 'primary'
+    }, 'Increment')
+  )
+)
 ```
 
-</td>
-<td width="50%" valign="top">
+---
 
-### [**raffel**](https://github.com/forattini-dev/raffel)
+## raffel
+
 **Build APIs Like Express. Scale Like Nothing Else.**
 
-Write once, expose everywhere. Same handler works over HTTP, WebSocket, JSON-RPC, gRPC, and GraphQL. Zero extra code. Express-like DX.
+[![npm](https://img.shields.io/npm/v/raffel?style=flat-square)](https://www.npmjs.com/package/raffel)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/raffel?style=flat-square)](https://github.com/forattini-dev/raffel)
 
-[![npm](https://img.shields.io/npm/v/raffel?color=8b5cf6&style=flat-square)](https://www.npmjs.com/package/raffel)
+Write once, expose everywhere. Same handler works over HTTP, WebSocket, JSON-RPC, gRPC, and GraphQL. Zero extra code.
 
 ```javascript
-const app = createServer({ port: 3000 })
+import { createServer } from 'raffel'
+
+const app = createServer({
+  port: 3000,
+  websocket: { path: '/ws' },
+  jsonrpc: { path: '/rpc' }
+})
 
 app.get('/users/:id', async ({ id }) => {
   return db.users.findById(id)
 })
 
-// Works: HTTP, WebSocket, JSON-RPC, gRPC
+app.post('/users', async (body) => {
+  return db.users.create(body)
+})
+
 await app.start()
+// Same handlers now work via HTTP, WebSocket, and JSON-RPC
 ```
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+---
 
-### [**vaulter**](https://github.com/forattini-dev/vaulter)
-**Environment & Secrets Manager**
+## vaulter
 
-Stop committing `.env` files. Encrypted storage (AES-256-GCM), multi-backend (S3, MinIO, R2), monorepo support. Export to K8s, Helm, Terraform, Docker. MCP server with 30 tools.
+**Stop committing .env files.**
 
-[![npm](https://img.shields.io/npm/v/vaulter?color=F5A623&style=flat-square)](https://www.npmjs.com/package/vaulter)
+[![npm](https://img.shields.io/npm/v/vaulter?style=flat-square)](https://www.npmjs.com/package/vaulter)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/vaulter?style=flat-square)](https://github.com/forattini-dev/vaulter)
+
+Encrypted storage (AES-256-GCM). Multi-backend (S3, MinIO, R2). Monorepo support. Export to K8s, Helm, Terraform, Docker. 30 MCP tools.
 
 ```bash
-vaulter init
-vaulter var set DATABASE_URL="postgres://..." -e prd
+# Initialize and store secrets
+vaulter init --backend s3://my-bucket/secrets
+vaulter set DATABASE_URL="postgres://prod:5432/db" -e prd
+vaulter set API_KEY="sk-live-xxx" -e prd --tags sensitive
+
+# Export to any format
 vaulter export k8s-secret -e prd | kubectl apply -f -
+vaulter export helm-values -e prd > values.yaml
+vaulter export tfvars -e prd > terraform.tfvars
 ```
 
-</td>
-<td width="50%" valign="top">
+---
 
-### [**cli-args-parser**](https://github.com/forattini-dev/cli-args-parser)
-**Expressive CLI Argument Parser**
+## cli-args-parser
 
-Zero dependencies. Expressive `key=value`, `key:=typed`, `Key:Meta` syntax. Nested subcommands. Custom validation. Shell completion. 431 tests.
+**Zero-dependency CLI argument parser.**
 
-[![npm](https://img.shields.io/npm/v/cli-args-parser?color=F5A623&style=flat-square)](https://www.npmjs.com/package/cli-args-parser)
-[![Zero Dependencies](https://img.shields.io/badge/deps-0-success?style=flat-square)](https://www.npmjs.com/package/cli-args-parser)
+[![npm](https://img.shields.io/npm/v/cli-args-parser?style=flat-square)](https://www.npmjs.com/package/cli-args-parser)
+[![deps](https://img.shields.io/badge/dependencies-0-success?style=flat-square)](https://www.npmjs.com/package/cli-args-parser)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/cli-args-parser?style=flat-square)](https://github.com/forattini-dev/cli-args-parser)
+
+Expressive syntax: `key=value`, `key:=typed`, `Key:Meta`. Nested subcommands. Custom validation. Shell completion. 431 tests.
 
 ```javascript
-parse(['name=Filipe', 'age:=35', '--verbose'])
-// { data: { name: 'Filipe', age: 35 }, flags: { verbose: true } }
+import { parse } from 'cli-args-parser'
+
+parse(['user=filipe', 'age:=30', 'admin:=true', '--verbose', '-f'])
+// {
+//   data: { user: 'filipe', age: 30, admin: true },
+//   flags: { verbose: true, f: true }
+// }
 ```
 
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top">
+---
 
-### [**redblue**](https://github.com/forattini-dev/redblue)
-**The Ultimate Security Arsenal in a Single Binary**
+## redblue
 
-30+ security tools in one 2.7MB binary. Zero dependencies. 100% Rust. Port scanning, subdomain enumeration, web fuzzing, vulnerability intelligence, secrets detection, encrypted vault, and a multi-modal database (tables + graphs + vectors).
+**The Ultimate Security Arsenal in a Single Binary.**
 
-[![Rust](https://img.shields.io/badge/rust-1.70%2B-orange?style=flat-square)](https://www.rust-lang.org)
-[![Size](https://img.shields.io/badge/size-2.7MB-green?style=flat-square)](https://github.com/forattini-dev/redblue/releases)
+[![Rust](https://img.shields.io/badge/rust-1.70+-orange?style=flat-square)](https://www.rust-lang.org)
+[![size](https://img.shields.io/badge/binary-2.7MB-green?style=flat-square)](https://github.com/forattini-dev/redblue/releases)
+[![GitHub](https://img.shields.io/github/stars/forattini-dev/redblue?style=flat-square)](https://github.com/forattini-dev/redblue)
+
+30+ security tools. Zero dependencies. 100% Rust. Port scanning, subdomain enumeration, web fuzzing, CVE lookup, secrets detection, encrypted vault, multi-modal database (tables + graphs + vectors).
 
 ```bash
-rb network scan ports 192.168.1.1 --type syn    # SYN scan
-rb recon domain subdomains example.com          # Subdomain enum
-rb web fuzz http://target.com/FUZZ -w words.txt # Web fuzzing
-rb intel vuln search nginx 1.18.0               # CVE lookup
-rb crypto vault encrypt secrets.txt             # AES-256-GCM vault
+# Network reconnaissance
+rb network scan ports 192.168.1.0/24 --type syn --top-ports 1000
+rb network scan services 10.0.0.1 -p 80,443,8080
+
+# Domain intelligence
+rb recon domain subdomains example.com --recursive
+rb recon domain tech-stack example.com
+
+# Web security
+rb web fuzz http://target.com/FUZZ -w wordlist.txt --threads 50
+rb web crawl http://target.com --depth 3
+
+# Vulnerability intelligence
+rb intel vuln search nginx 1.18.0
+rb intel vuln details CVE-2021-44228
+
+# Crypto & secrets
+rb crypto vault create secrets.vault
+rb crypto vault encrypt data.json -o data.enc
 ```
-
-</td>
-</tr>
-</table>
-
----
-
-## The Philosophy
-
-Every library I build follows these principles:
-
-| Principle | Why |
-|:----------|:----|
-| **Zero Dependencies** | No supply chain attacks. No version conflicts. No bloat. |
-| **TypeScript-First** | Full type safety. Great IDE support. Self-documenting APIs. |
-| **MCP-Ready** | AI assistants (Claude, Cursor) can use my tools natively. |
-| **Production-Ready** | Not toys. Used in real systems. Thoroughly tested. |
-
----
-
-## By the Numbers
-
-| Metric | Value |
-|:-------|:------|
-| **s3db.js** | 60+ examples, 12 plugins, MCP server |
-| **recker** | 9 protocols, 48 presets, 65 MCP tools, 4200+ tests |
-| **tuiuiu.js** | 50+ components, 11 themes, 5300+ tests |
-| **redblue** | 30+ tools, multi-modal DB, 2.7MB binary |
-| **vaulter** | 30 MCP tools, exports to 8 formats |
 
 ---
 
 <div align="center">
 
+## The Philosophy
+
+**Zero Dependencies** · **TypeScript-First** · **MCP-Ready** · **Production-Ready**
+
+No supply chain attacks. Full type safety. AI assistants can use my tools natively. Not toys—used in real systems.
+
+---
+
 ### Let's Connect
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/filipeforattini)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/filipeforattini)
-
----
 
 *All projects are MIT licensed. Open source. Free forever.*
 
